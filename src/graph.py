@@ -1,6 +1,6 @@
 # graph.py
 import networkx as nx
-
+// Blue Circle for Process and Green Square for Resource
 class ResourceAllocationGraph:
     def __init__(self):
         self.graph = nx.DiGraph()
