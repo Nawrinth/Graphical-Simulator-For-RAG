@@ -57,8 +57,8 @@ class ResourceAllocationGraphUI:
         tk.Button(self.controls_frame, text="Add", bg='#7289DA', **btn_style, command=self.allocate_resource).grid(row=3, column=3, padx=5, pady=5)
 
         # Control buttons
-        tk.Button(self.controls_frame, text="Clear Graph", bg='#F39C12', **btn_style, command=self.clear_graph).grid(row=4, column=1, columnspan=2, pady=10)
-        tk.Button(self.controls_frame, text="Check Deadlock", bg='#E74C3C', **btn_style, command=self.check_deadlock).grid(row=5, column=1, columnspan=2, pady=10)
+        tk.Button(self.controls_frame, text="Clear Graph", bg='#F39C11', **btn_style, command=self.clear_graph).grid(row=4, column=1, columnspan=2, pady=10)
+        tk.Button(self.controls_frame, text="Check Deadlock", bg='#E74C3D', **btn_style, command=self.check_deadlock).grid(row=5, column=1, columnspan=2, pady=10)
 
         self.draw_graph()
 
