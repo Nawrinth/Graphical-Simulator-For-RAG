@@ -1,0 +1,43 @@
+# graph.py
+import networkx as nx
+
+class ResourceAllocationGraph:
+    def __init__(self):
+        self.graph = nx.DiGraph()
+
+    def add_process(self, process):
+        if process and not self.graph.has_node(process):
+            self.graph.add_node(process, type='process')
+
+    def remove_process(self, process):
+        if process in self.graph:
+            self.graph.remove_node(process)
+
+    def add_resource(self, resource):
+        if resource and not self.graph.has_node(resource):
+            self.graph.add_node(resource, type='resource')
+
+    def remove_resource(self, resource):
+        if resource in self.graph:
+            self.graph.remove_node(resource)
+
+    def request_resource(self, process, resource):
+        if process and resource and self.graph.has_node(process) and self.graph.has_node(resource):
+            self.graph.add_edge(process, resource, color='red')
+
+    def allocate_resource(self, resource, process):
+        if resource and process and self.graph.has_node(resource) and self.graph.has_node(process):
+            self.graph.add_edge(resource, process, color='blue')
+
+    def clear_graph(self):
+        self.graph.clear()
+
+    def check_deadlock(self):
+        try:
+            cycle = list(nx.find_cycle(self.graph, orientation='original'))
+            return cycle
+        except nx.NetworkXNoCycle:
+            return None
+
+    def get_graph(self):
+        return self.graph
